@@ -3,14 +3,14 @@
 > Cliente gráfico para VPN IPSec en Linux (`vpnc` + Tkinter) con estado en vivo, reconexión automática y guardado seguro de credenciales.
 > *Graphical IPSec VPN client for Linux with live status, auto-reconnect and secure credential storage.*
 
-Una ventana sencilla para conectarse a la VPN corporativa, que **te avisa cuando la conexión se cae** y **reconecta sola**. Nació de un script de terminal con `zenity` y evolucionó a una aplicación con monitoreo continuo.
+Una ventana sencilla para conectarse a la VPN corporativa, que **te avisa cuando se pierde la conexion** y **reconecta sola**. Nació de un script de terminal con `zenity` y evolucionó a una aplicación con monitoreo continuo.
 
 <p align="center">
-  <img src="docs/img/login.png" width="250" alt="Pantalla de acceso">
+  <img src="docs/login.png" width="250" alt="Pantalla de acceso">
   &nbsp;&nbsp;
-  <img src="docs/img/conectado.png" width="250" alt="Conectado">
+  <img src="docs/conectado.png" width="250" alt="Conectado">
   &nbsp;&nbsp;
-  <img src="docs/img/reconectando.png" width="250" alt="Reconectando">
+  <img src="docs/reconectando.png" width="250" alt="Reconectando">
 </p>
 <p align="center"><sub>Acceso &nbsp;·&nbsp; Conectado &nbsp;·&nbsp; Caída detectada y reconectando</sub></p>
 
@@ -29,7 +29,7 @@ Una ventana sencilla para conectarse a la VPN corporativa, que **te avisa cuando
 - **Sin dependencias de Python externas:** solo biblioteca estándar y Tkinter.
 
 <p align="center">
-  <img src="docs/img/notificaciones.png" width="330" alt="Notificaciones de escritorio al caerse y restablecerse la VPN">
+  <img src="docs/notificaciones.png" width="330" alt="Notificaciones de escritorio al caerse y restablecerse la VPN">
 </p>
 <p align="center"><sub>Notificaciones de escritorio al caerse y restablecerse la conexión</sub></p>
 
@@ -57,7 +57,7 @@ cd <carpeta-del-repositorio>
 
 ### 2. Configurar el gateway y el secret
 
-Abre `vpn_viva.py` y completa estas dos constantes al inicio del archivo:
+Abre `app/vpn_viva.py` y completa estas dos constantes al inicio del archivo:
 
 ```python
 SECRET = "PON_AQUI_EL_SECRET"
@@ -66,13 +66,14 @@ GATEWAY_DEFAULT = "xxx.xxx.xxx.xxx"
 
 > **Importante:** no subas estos valores a un repositorio público. Para evitar un commit accidental de tu copia local puedes ejecutar:
 > ```bash
-> git update-index --skip-worktree vpn_viva.py
+> git update-index --skip-worktree app/vpn_viva.py
 > ```
 
 ### 3. Ejecutar el instalador
 
 ```bash
-bash instalar_launcher.sh
+cd app
+bash launcher_vpn_IPsec.sh
 ```
 
 Pedirá la contraseña de tu equipo (al escribirla no se ve nada; es normal) y realiza tres etapas:
@@ -173,7 +174,7 @@ La paleta de colores también está en constantes (`BG`, `ACCENT`, `DANGER`, …
 |----------|-----------|
 | El icono no abre | Clic derecho → **Permitir lanzar**. Si sigue igual, ejecuta `python3 ~/.local/share/vpn-viva/vpn_viva.py` en una terminal para ver el error |
 | `No module named tkinter` | `sudo apt install -y python3-tk` |
-| "revise el sudoers" | Falló la etapa 2 de la instalación; vuelve a ejecutar `bash instalar_launcher.sh` |
+| "revise el sudoers" | Falló la etapa 2 de la instalación; vuelve a ejecutar `bash launcher_vpn_IPsec.sh` (dentro de la carpeta `app`) |
 | No guarda credenciales | Verifica que `libsecret-tools` esté instalado y que el llavero de la sesión esté desbloqueado |
 | Dice que ya está abierta | Hay otra ventana abierta o minimizada; búscala en la barra de tareas |
 | No conecta | Revisa tu internet y el log: `~/.cache/vpn-viva/vpn.log` |
@@ -198,11 +199,16 @@ Y borra el icono **VPN VIVA** del escritorio.
 ## Estructura del repositorio
 
 ```
-.
-├── vpn_viva.py            # Aplicación (interfaz + monitor + reconexión)
-├── instalar_launcher.sh   # Instalador: dependencias, permisos y lanzador
-├── docs/
-│   └── img/               # Capturas de pantalla de este README
+vpn_ipsec_app/
+├── app/
+│   ├── vpn_viva.py              # Aplicación (interfaz + monitor + reconexión)
+│   └── launcher_vpn_IPsec.sh    # Instalador: dependencias, permisos y lanzador
+├── docs/                        # Capturas de pantalla de este README
+│   ├── login.png
+│   ├── conectado.png
+│   ├── reconectando.png
+│   ├── notificaciones.png
+│   └── vpn-ipsec.png
 └── README.md
 ```
 
@@ -215,5 +221,3 @@ Creado por **Franklyn Castro**.
 **Menciones especiales:** Deivy Borge & Francisco Brujan.
 
 ---
-
-<sub>Herramienta de uso interno entregada tal cual. No incluye credenciales ni datos de conexión; el gateway y el secret IPSec deben ser provistos por el equipo de redes correspondiente.</sub>
