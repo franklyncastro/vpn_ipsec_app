@@ -3,7 +3,7 @@
 """
 VPN VIVA (IPSec / vpnc) - Cliente gráfico con monitoreo y reconexión automática.
 Autor: Franklyn Yawerlyn Castro. 
-Menciones especiales, Francisco Brujar & Deibi Borges.
+Menciones especiales: Francisco Brujar & Deibi Borges.
 
 DEPENDENCIAS
   Debian/Ubuntu/Mint: sudo apt install -y vpnc python3-tk libsecret-tools libnotify-bin
@@ -40,8 +40,8 @@ from tkinter import messagebox
 # ==============================================================================
 APP_NAME = "VPN VIVA"
 CONFIG_FILE = "/etc/vpnc/viva.conf"
-SECRET ="INGRESA EL SECRET"
-GATEWAY_DEFAULT = "INGRESA LA IP VPN"
+SECRET ="8@95X0gb7r*ok"
+GATEWAY_DEFAULT = "190.8.37.86"
 
 VPN_IF = "tunviva"       # Nombre fijo de la interfaz del túnel
 HEALTH_HOST = ""         # IP interna alcanzable SOLO por VPN (vacío = no hacer ping)
