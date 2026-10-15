@@ -6,11 +6,11 @@
 Una ventana sencilla para conectarse a la VPN corporativa, que **te avisa cuando la conexión se cae** y **reconecta sola**. Nació de un script de terminal con `zenity` y evolucionó a una aplicación con monitoreo continuo.
 
 <p align="center">
-  <img src="docs/img/login.png" width="250" alt="Pantalla de acceso">
+  <img src="img/login.png" width="250" alt="Pantalla de acceso">
   &nbsp;&nbsp;
-  <img src="docs/img/conectado.png" width="250" alt="Conectado">
+  <img src="img/conectado.png" width="250" alt="Conectado">
   &nbsp;&nbsp;
-  <img src="docs/img/reconectando.png" width="250" alt="Reconectando">
+  <img src="img/reconectando.png" width="250" alt="Reconectando">
 </p>
 <p align="center"><sub>Acceso &nbsp;·&nbsp; Conectado &nbsp;·&nbsp; Caída detectada y reconectando</sub></p>
 
@@ -29,7 +29,7 @@ Una ventana sencilla para conectarse a la VPN corporativa, que **te avisa cuando
 - **Sin dependencias de Python externas:** solo biblioteca estándar y Tkinter.
 
 <p align="center">
-  <img src="docs/img/notificaciones.png" width="330" alt="Notificaciones de escritorio al caerse y restablecerse la VPN">
+  <img src="img/notificaciones.png" width="330" alt="Notificaciones de escritorio al caerse y restablecerse la VPN">
 </p>
 <p align="center"><sub>Notificaciones de escritorio al caerse y restablecerse la conexión</sub></p>
 
