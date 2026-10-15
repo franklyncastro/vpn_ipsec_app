@@ -40,8 +40,8 @@ from tkinter import messagebox
 # ==============================================================================
 APP_NAME = "VPN VIVA"
 CONFIG_FILE = "/etc/vpnc/viva.conf"
-SECRET ="8@95X0gb7r*ok"
-GATEWAY_DEFAULT = "190.8.37.86"
+SECRET ="INGRESA EL SECRET"
+GATEWAY_DEFAULT = "INGRESA LA IP VPN"
 
 VPN_IF = "tunviva"       # Nombre fijo de la interfaz del túnel
 HEALTH_HOST = ""         # IP interna alcanzable SOLO por VPN (vacío = no hacer ping)
